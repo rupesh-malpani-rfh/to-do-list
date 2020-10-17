@@ -11,3 +11,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: #e8e8e8;
+  width: 958px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid #ccc;;
+}
+
+.tdContainer{
+  margin: 20px auto;
+  width: 70%;
+}
+
+.todoListContainer {
+  display: flex;
+}
+
+.todo {
+  align-items: center;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  width: 96%;
+  margin-right: 2%;
+}
+
+.input {
+  width: 97%;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 6px 10px;
+}

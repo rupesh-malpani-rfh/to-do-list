@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ToDo from './components/Todo'
+import TodoForm from './components/TodoForm';
 
-function App() {
+const App = () => {
+
+  const [todo, setTodo] = useState([
+    { title: 'Learning React', isComplete: false },
+    { title: 'High priority issues', isComplete: false },
+    { title: 'Code Merging', isComplete: false }
+  ])
+
+  const addTodo = title => {
+    const newTitle = [...todo, { title }];
+    setTodo(newTitle);
+  }
+
+  const toDoToggle = (index) => {
+    const newTodo = [...todo]
+    newTodo[index].isComplete = !newTodo[index].isComplete
+    setTodo(newTodo)
+  }
+
+  const removeTodo = (index) => {
+    const newTodo = [...todo]
+    newTodo.splice(index, 1)
+    setTodo(newTodo)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 style={{ textAlign: 'center' }}>To do List</h1>
+      <div className="tdContainer">
+        <TodoForm addTodo={addTodo} />
+        <h3>{todo.length === 0 ? 'Please go on and add your To-Do items...' : ''}</h3>
+        {todo.map((todo, index) => (
+          <ToDo
+            key={index}
+            index={index}
+            todo={todo}
+            toDoToggle={toDoToggle}
+            removeTodo={removeTodo}
+          />
+        ))}
+      </div>
     </div>
   );
 }
